@@ -123,8 +123,19 @@ Symbol的主要用途有：
 #### 解答
 + 异步编程：由于JavaScript语言是单线程的，多个任务进行时需要排队，在遇到耗时任务时会产生假死，所以采用异步模式来处理相关业务。
 + Event Loop：主线程从"任务队列"中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。其作用就是不断监视当前任务队列是否有宏任务，有宏任务则继续执行宏任务，没有宏任务则执行微任务队列中所有的微任务。
-+ 宏任务：宏任务通常来说就是同步代码本身产生的任务。
-+ 微任务：微任务通常来说就是需要在当前 task 执行结束后立即执行的任务。
++ 宏任务：宏任务通常来说就是同步代码本身产生的任务，常见的有以下几种：
+    + 整体script代码
+    + setTimeout
+    + setInterval
+    + setImmediate (Node独有)
+    + requestAnimationFrame (浏览器独有)
+    + I/O
+    + UI rendering (浏览器独有)
++ 微任务：微任务通常来说就是需要在当前 task 执行结束后立即执行的任务，常见的有以下几种：
+    + process.nextTick (Node独有)
+    + Promise（Generator、async await）
+    + Object.observe
+    + MutationObserver
 
 ### 第九题
 
