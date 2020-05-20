@@ -1,0 +1,22 @@
+// 抽象类
+
+export {}
+
+abstract class Animal {
+    eat (food: string): void {
+        console.log(`呼噜呼噜的吃： ${food}`)
+    }
+
+    abstract run (distance: number): void
+}
+
+class Dog extends Animal {
+    run(distance: number): void {
+        console.log('四脚爬行', distance)
+    }
+}
+
+const d = new Dog()
+
+d.eat('ff')
+d.run(111)
